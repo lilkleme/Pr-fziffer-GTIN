@@ -1,0 +1,78 @@
+<html>
+	<head>
+		<title>
+		Prüfziffer GTIN
+		</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<script>
+			"use strict";
+			function rechne() {
+				
+				var vZ1;
+				var vZ2;
+				var vZ3;
+				var vZ4;
+				var vZ5;
+				var vZ6;
+				var vZ7;
+				var vErgebnis;
+				var vPruefziffer;
+				var vAusgabeHtml;
+				
+				
+				
+
+				
+				vZ1=document.getElementById("idZ1").value;
+				vZ2=document.getElementById("idZ2").value;
+				vZ3=document.getElementById("idZ3").value;
+				vZ4=document.getElementById("idZ4").value;
+				vZ5=document.getElementById("idZ5").value;
+				vZ6=document.getElementById("idZ6").value;
+				vZ7=document.getElementById("idZ7").value;
+			
+				
+				
+			
+                vErgebnis = (vZ1*3) + (vZ2*1) + (vZ3*3) + (vZ4*1) + (vZ5*3) + (vZ6*1) + (vZ7*3);
+				
+				vPruefziffer = 10 - (vErgebnis%10);
+				
+				if(vPruefziffer == 10){
+				
+					vPruefziffer = 0;
+				
+				}
+				
+				vAusgabeHtml = " Die Prüfsumme ist " + vErgebnis + " die Prüfziffer ist " + vPruefziffer;
+				
+				document.getElementById("idAusgabeHtml").innerHTML = vAusgabeHtml;
+				
+			}	
+			
+			
+			
+		</script>
+	
+</head>
+
+	<body>
+		<h1>Prüfziffer EAN</h1>
+		Europäische Artikelnummer: 
+		<input id="idZ1" type="text" maxlength="1" size="1" value="4">
+		<input id="idZ2" type="text" maxlength="1" size="1" value="2">
+		<input id="idZ3" type="text" maxlength="1" size="1" value="2">
+		<input id="idZ4" type="text" maxlength="1" size="1" value="1">
+		<input id="idZ5" type="text" maxlength="1" size="1" value="4">
+		<input id="idZ6" type="text" maxlength="1" size="1" value="3">
+		<input id="idZ7" type="text" maxlength="1" size="1" value="9">
+	
+		
+		     
+		</br> 
+		<button onClick="rechne();">Rechne GTIN</button>
+		</br> 
+		</br> 
+		<div id="idAusgabeHTML"></div>
+	</body>
+</html>
